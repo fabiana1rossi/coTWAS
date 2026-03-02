@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+
+
+# Define variables
+my $output_directory = "./STEP6.Apply_EpiXcan_CIS_MODULE_Models/MetaXcan_sh_scripts";
+my $metaxcan_path    = "../../tools/Metaxcan/software";
+my $main_path        = "./STEP2.Training_cis/output_EpiXcan/database/"; 
+my $data_path        = "./genotype/EpiXcan.matched.geno";
+my $results_path     = "./predictions/";
+
+# List of genotype directories
+my @genotype_files = ("your_testing_genotype_prefix"); 
+my @targets        = ("your_testing_genotype_name");
+my @regions        = ("dlpfc");
+
+# Create the output directory if it doesn't exist
+unless (-d $output_directory) {
+    mkdir $output_directory or die "Failed to create directory $output_directory: $!";
+    print "Directory created: $output_directory\n";
+} else {
+    print "Directory already exists: $output_directory\n";
+}
+
+# Loop over genotype identifiers
+foreach my $target (@targets) {
+    print "Processing target: $target\n";
+    foreach my $region (@regions) {
+        print "  Processing region: $region\n";
+        foreach my $genotype_file (@genotype_files) {
+            print "    Processing genotype file: $genotype_file\n";
+            
+            # Ensure the RESULTS directory structure exists
+            my $results_dir = "$results_path/EpiXcan";
+            unless (-d $results_dir) {
+                make_path($results_dir) or die "Failed to create directory $results_dir: $!";
+                print "Directory created: $results_dir\n";
+            }
+            
+            # Construct the full path for the sh script
+            my $script_path = "${output_directory}/EpiXcan_${region}_MetaXcan_script_${target}.sh";
+            print "    Script path: $script_path\n";
+
+            # Open the output file for the sh script
+            open my $script_fh, '>', $script_path or die "Unable to open $script_path: $!";
+            print $script_fh "#!/bin/bash\n\n";
+            print $script_fh "export METAXCAN=$metaxcan_path\n";
+            print $script_fh "export MAIN=$main_path\n";
+            print $script_fh "export DATA=$data_path\n";
+            print $script_fh "export RESULTS=$results_path\n\n";
+            print $script_fh "printf \"Predict expression: ${target} in ${region} \\\n\\n\"\n\n";
+            print $script_fh "python3 \$METAXCAN/Predict.py \\\n";
+            print $script_fh "--model_db_path \$MAIN/${region}/EpiXcan_${region}.db \\\n"; 
+            print $script_fh "--model_db_snp_key rsid \\\n";
+            print $script_fh "--vcf_genotypes \$DATA/${genotype_file}_${region}_EpiXcan.matched.vcf \\\n";
+            print $script_fh "--vcf_mode genotyped \\\n";
+            print $script_fh "--force_colon \\\n";
+            print $script_fh "--prediction_output \$RESULTS/EpiXcan/EpiXcan_${region}_predicted.txt.gz \\\n";
+            print $script_fh "--prediction_summary_output \$RESULTS/EpiXcan/EpiXcan_${region}_summary.txt.gz \\\n";
+            print $script_fh "--verbosity 9 \\\n";
+            print $script_fh "--throw\n\n";
+            
+            close $script_fh;
+            print "    Script generated: $script_path\n";
+
+            # Change permissions
+            chmod 0755, $script_path or die "Failed to chmod $script_path: $!";
+        }
+    }
+}
+
+print "All scripts have been generated in '$output_directory'.\n";
