@@ -13,7 +13,7 @@ Rossi et al., [INSERT DOI]
 
 This pipeline integrates methods from PrediXcan, EpiXcan, MetaXcan, MAGMA, GCTA-COJO, and elastic-net modeling (glmnet). Appropriate citation of these tools is required in derivative work.
 
-Detailed software specifications and version information are provided in the Key Resources Table in the Supplementary Materials of the associated manuscript and in the 'README_Packages_and_Versions' file within this repository.
+R packages used and version information are provided in the Key Resources Table in the Supplementary Materials of the associated manuscript and in the 'README_Packages_and_Versions' file within this repository.
 
 
 ## Main Objective
