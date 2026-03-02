@@ -1,6 +1,6 @@
-## Packages and versions (local check)
+## Packages and versions 
 
-This file lists the **R packages used by the pipeline** and the **versions installed on this machine** at the time the pipeline was run.
+This file lists the **R packages used by the pipeline** and the **versions installed** at the time the pipeline was run.
 
 - **R version**: 4.5.0  
 
@@ -56,6 +56,7 @@ This file lists the **R packages used by the pipeline** and the **versions insta
 
 
  
+
 
 
 
