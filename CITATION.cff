@@ -1,7 +1,6 @@
 cff-version: 1.2.0
 title: "coTWAS - co-expression TWAS pipeline"
 message: "If you use this code, please cite the associated manuscript."
-type: software
 authors:
   - family-names: "Rossi"
     given-names: "Fabiana"
@@ -16,6 +15,6 @@ preferred-citation:
     - family-names: "Rossi"
       given-names: "Fabiana"
   title: "Co-expression-based models improve eQTL predictions for transcriptome-wide association studies and highlight new schizophrenia-associated genes"
-  journal: "Nature Genetics"
-  status: "in press"
-
+  journal: "Nature Genetics"  
+  year: 2026
+  doi: "10.xxxx/xxxx"
