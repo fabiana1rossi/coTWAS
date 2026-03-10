@@ -17,8 +17,8 @@ This pipeline integrates methods and tools including PrediXcan, EpiXcan, MetaXca
 
 The archived and citable version of this software is available on Zenodo:
 
-https://doi.org/10.5281/zenodo.18936827
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18936827.svg)](https://doi.org/10.5281/zenodo.18936827)
+https://doi.org/10.5281/zenodo.14959416 (Concept DOI)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18936827.svg)](https://doi.org/10.5281/zenodo.18936827) 
 
 GitHub hosts the development version of the code.
 
