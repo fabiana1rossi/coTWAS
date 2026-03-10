@@ -177,10 +177,4 @@ output/
 - Some steps require significant computational resources and memory
 - The pipeline uses elastic net regression (alpha=0.5) for all model training
 
-## Troubleshooting
-
-1. **Missing files**: Check that all input paths in configuration are correct
-2. **Memory issues**: Reduce `n_cores` or process chromosomes/regions separately
-3. **Package errors**: Install missing packages as indicated in error messages
-
 
