@@ -1,8 +1,8 @@
-# coTWAS - co-expression TWAS pipeline
+# coTWAS - co-expression TWAS 
 
 ## Overview
 
-This pipeline trains and applies multiple gene expression prediction models for brain tissues using RNA-seq and genotype data. It combines cis-regulatory (CIS, EpiXcan) and trans-regulatory (MODULE, INGENE) approaches to predict gene expression, then performs co-expression-based Transcriptome-Wide Association Studies (coTWAS).
+This repository contains the computational pipeline used to train and apply multiple gene expression prediction models for brain tissues using RNA-seq and genotype data. The framework integrates both cis-regulatory (CIS, EpiXcan) and trans-regulatory (MODULE, INGENE) approaches to predict gene expression and subsequently performs co-expression-based Transcriptome-Wide Association Studies (coTWAS).
 
 
 ## Citation
@@ -24,14 +24,25 @@ https://doi.org/10.5281/zenodo.18936827
 
 GitHub hosts the development version of the code.
 
-## Main Objective
+## Pipeline
 
-The pipeline builds predictive models that estimate gene expression levels from genotype data across multiple brain regions (DLPFC, Caudate, Hippocampus, Amygdala, dACC, sACC). It uses four complementary approaches:
+The coTWAS pipeline builds predictive models that estimate gene expression levels from genotype data across multiple brain regions:
+
+- Dorsolateral Prefrontal Cortex (DLPFC)  
+- Caudate (CN)
+- Hippocampus (HP) 
+- Amygdala  
+- Dorsal Anterior Cingulate Cortex (dACC)  
+- Subgenual Anterior Cingulate Cortex (sACC)
+
+The pipeline integrates four complementary approaches to capture different regulatory signals influencing gene expression.
 
 - **CIS**: cis-eQTL models using variants within 1Mb of genes
 - **EpiXcan**: Epigenetic annotation-informed cis-eQTL models 
 - **MODULE**: Co-expression network-based model using ME of coexpressed genes
 - **INGENE**: Co-expression network-based model using imputed expression from co-expression partners
+
+_Predicted expression values from the four approaches are subsequently combined using gene-specific linear models trained in the GTEx dataset to generate a final integrated expression estimate._
 
 ## Pipeline Structure
 
