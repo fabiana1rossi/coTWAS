@@ -7,13 +7,11 @@ This repository contains the computational pipeline used to train and apply mult
 
 ## Citation
 
-If you use this pipeline, please cite the corresponding manuscript:
+If you use this pipeline or associated data, please cite the following manuscript:
 
 Rossi et al., [INSERT DOI]
 
-This pipeline integrates methods from PrediXcan, EpiXcan, MetaXcan, MAGMA, GCTA-COJO, and elastic-net modeling (glmnet). Appropriate citation of these tools is required in derivative work.
-
-R packages used and version information are provided in the Key Resources Table in the Supplementary Materials of the associated manuscript and in the 'README_Packages_and_Versions' file within this repository.
+This pipeline integrates methods and tools including PrediXcan, EpiXcan, MetaXcan, MAGMA, GCTA-COJO, and elastic-net modeling (glmnet). Appropriate citation of these tools is required in any derivative work.
 
 ## Archived version
 
@@ -23,6 +21,11 @@ https://doi.org/10.5281/zenodo.18936827
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18936827.svg)](https://doi.org/10.5281/zenodo.18936827)
 
 GitHub hosts the development version of the code.
+
+## Software and package versions
+
+The R packages used and their version information are provided in the Key Resources Table in the Supplementary Materials of the associated manuscript, as well as in the README_Packages_and_Versions file included in this repository.
+
 
 ## Pipeline
 
