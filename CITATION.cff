@@ -1,20 +1,29 @@
 cff-version: 1.2.0
-title: "coTWAS - co-expression TWAS pipeline"
-message: "If you use this code, please cite the associated manuscript."
+title: "coTWAS: co-expression TWAS pipeline"
+message: "If you use this code, please cite the Zenodo archive below and the associated publication."
+
+type: Software
+
 authors:
   - family-names: "Rossi"
     given-names: "Fabiana"
-    orcid: "0009-0004-3724-9456"
+    orcid: "https://orcid.org/0009-0004-3724-9456"
+
 repository-code: "https://github.com/fabiana1rossi/coTWAS"
+url: "https://github.com/fabiana1rossi/coTWAS"
+
 license: MIT
 version: "1.0.0"
-date-released: 2026-X-X
+date-released: 2026-01-01
+
+doi: "10.5281/zenodo.18936827"
+
 preferred-citation:
   type: article
   authors:
     - family-names: "Rossi"
       given-names: "Fabiana"
   title: "Co-expression-based models improve eQTL predictions for transcriptome-wide association studies and highlight new schizophrenia-associated genes"
-  journal: "Nature Genetics"  
+  journal: "Nature Genetics"
   year: 2026
   doi: "10.xxxx/xxxx"
