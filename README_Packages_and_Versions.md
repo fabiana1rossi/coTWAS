@@ -54,9 +54,11 @@ This file lists the **R packages used by the pipeline** and the **versions insta
 | ridir | 1.3.1 |
 | tidyverse | 2.0.0 |
 | tsutils | 0.9.4 |
+| furrr | 4.5.2 |
 
 
  
+
 
 
 
