@@ -15,6 +15,13 @@ This pipeline integrates methods from PrediXcan, EpiXcan, MetaXcan, MAGMA, GCTA-
 
 R packages used and version information are provided in the Key Resources Table in the Supplementary Materials of the associated manuscript and in the 'README_Packages_and_Versions' file within this repository.
 
+## Code archive
+
+The official archived version of this software is available on Zenodo:
+
+https://doi.org/10.5281/zenodo.18936827
+
+GitHub hosts the development version of the code.
 
 ## Main Objective
 
