@@ -9,7 +9,7 @@ This repository contains the computational pipeline used to train and apply mult
 
 If you use this pipeline or associated data, please cite the following manuscript:
 
-Rossi et al., [INSERT DOI]
+_Rossi, F. et al. Co-expression-based models improve eQTL predictions and highlight novel transcriptome-wide genes associated with schizophrenia. bioRxiv (2026) https://doi.org/10.64898/2026.02.10.704353_
 
 This pipeline integrates methods and tools including PrediXcan, EpiXcan, MetaXcan, MAGMA, GCTA-COJO, and elastic-net modeling (glmnet). Appropriate citation of these tools is required in any derivative work.
 
