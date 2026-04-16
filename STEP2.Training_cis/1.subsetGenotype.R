@@ -120,19 +120,22 @@ find_cis_snps = function(snp_info, gene_positions, window_size) {
 #' @param snp_ids SNP IDs to process
 #' @param sample_ids Sample IDs
 #' @return Genotype matrix
-get_genotype_matrix = function(genofile, snp_ids, sample_ids) {
-    message("Loading complete genotype matrix for cis SNPs...")
-    
-    # Get genotypes for all cis SNPs at once
-    geno_mat = snpgdsGetGeno(
-        genofile,
-        sample.id = sample_ids,
-        snp.id = snp_ids,
-        with.id = TRUE,
-        verbose = FALSE
-    )
-    
-    return(as.data.frame(geno_mat$genotype))
+get_genotype_matrix = function(genofile, snp_ids, sample_ids=NULL) {
+    message("Loading complete genotype matrix for cis SNPs...")
+
+    # Get genotypes for all cis SNPs at once
+    geno_mat = snpgdsGetGeno(
+        genofile,
+        sample.id = NULL,
+        snp.id = snp_ids,
+        with.id = TRUE,
+        verbose = FALSE
+    )
+    geno = as.data.frame(geno_mat$genotype)
+    rownames(geno) = geno_mat$sample.id
+    colnames(geno) = geno_mat$snp.id
+
+    return(geno)
 }
 
 #' Process chromosome data for a specific brain region
@@ -252,10 +255,22 @@ main = function(config) {
         
         # Get complete genotype matrix for cis SNPs
         geno_data = get_genotype_matrix(
-            genofile   = genofile,
-            snp_ids    = cis_snps,
-            sample_ids = sample_ids
+          genofile   = genofile,
+          snp_ids    = cis_snps,
+          sample_ids = NULL
         )
+        
+        # Get sample IDs
+        rna_seq    = get(load(config$rnaseq))
+        sample_ids = rownames(rna_seq[[region]]$colData) 
+        
+        ## Check overlap samples rna/geno
+        fam        = read.table(paste0(config$genotype_path,".fam"), quote="\"", comment.char="")
+        sample_ids = sample_ids[which(sample_ids %in% fam$V2)]
+                
+        ## Subset genotype for region samples
+        geno_data = geno_data[which(rownames(geno_data) %in% sample_ids),]
+        geno_data = geno_data[match(sample_ids, rownames(geno_data)),]
         
         # Set column names for the genotype matrix
         rownames(geno_data) = sample_ids
