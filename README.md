@@ -24,7 +24,7 @@ GitHub hosts the development version of the code.
 
 ## Software and package versions
 
-The R packages used and their version information are provided in the Key Resources Table in the Supplementary Materials of the associated manuscript, as well as in the README_Packages_and_Versions file included in this repository.
+The R packages used and their version information are provided in Supplementary Table 9 of the associated manuscript, as well as in the README_Packages_and_Versions file included in this repository.
 
 
 ## Pipeline
